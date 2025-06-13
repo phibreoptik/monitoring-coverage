@@ -37,14 +37,17 @@
     "@dynatrace-sdk/app-utils": "^0.2.1",
     "@dynatrace-sdk/client-classic-environment-v1": "1.0.2",
     "@dynatrace-sdk/client-classic-environment-v2": "1.0.4",
-    "@dynatrace-sdk/client-query": "1.0.5",
-    "@dynatrace-sdk/navigation": "1.0.0",
-    "@dynatrace-sdk/units": "0.7.1",
-    "@dynatrace/strato-components-preview": "0.94.4",
-    "@dynatrace/strato-icons": "0.30.5",
+    "@dynatrace-sdk/client-query": "^1.20.2",
+    "@dynatrace-sdk/navigation": "^2.0.0",
+    "@dynatrace-sdk/units": "^1.0.3",
+    "@dynatrace/strato-components": "^1.6.0",
+    "@dynatrace/strato-components-preview": "^1.6.1",
+    "@dynatrace/strato-design-tokens": "^1.0.1",
+    "@dynatrace/strato-icons": "^1.5.0",
     "@tanstack/react-query": "^4.29.3",
     "@tanstack/react-query-devtools": "^4.29.3",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-intl": "^6.8.9"
   }
 }
