@@ -10,6 +10,17 @@ Please note that the app is intended mostly for educational purposes and should 
 You can start using this Sample App now:
 1. Clone this repo to your localhost
 2. Edit `env.ts` to point to your environment
+   - Set the `TENANT` constant to your Dynatrace tenant ID.
+   - For Dynatrace **SaaS** use the `.apps.dynatrace.com` domain. A typical configuration looks like:
+
+     ```ts
+     const TENANT = '<tenant>'; 
+     export const ENVIRONMENT_URL = `https://${TENANT}.apps.dynatrace.com/`;
+     ```
+
+   - For Dynatrace **Labs** keep the `.dev.dynatracelabs.com` domains as provided in `env.ts`.
+   
+   Using the wrong URL will result in **404** responses during authentication.
 3. Test locally: `npm run start`
 4. Deploy using `npm run deploy`
 
