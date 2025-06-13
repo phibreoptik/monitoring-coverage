@@ -1,4 +1,5 @@
-import { Button, showToast } from '@dynatrace/strato-components-preview';
+import { showToast } from '@dynatrace/strato-components-preview';
+import { Button } from '@dynatrace/strato-components/buttons';
 import { CheckmarkIcon, CopyIcon } from '@dynatrace/strato-icons';
 import React, { useState } from 'react';
 

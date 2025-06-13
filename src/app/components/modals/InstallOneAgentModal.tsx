@@ -5,15 +5,14 @@ import {
   FormField,
   Select,
   SelectOption,
-  Button,
   SelectedKeys,
-  LoadingIndicator,
   TextInput,
   TextArea,
-  Text,
   Hint,
   ProgressBar,
 } from '@dynatrace/strato-components-preview';
+import { Text } from '@dynatrace/strato-components/typography';
+import { Button } from '@dynatrace/strato-components/buttons';
 import {
   GetAgentInstallerMetaInfoPathOsType,
   GetAgentInstallerMetaInfoPathInstallerType,
@@ -233,7 +232,7 @@ export const InstallOneAgentModal = ({ modalOpen, onDismiss, ips, cloudType }: I
                     </Button.Prefix>
                     Download
                   </Button>
-                  <LoadingIndicator loading={downloading} />
+                  {downloading ? <span>Loading...</span> : null}
                 </Flex>
               </FormField>
               <FormField label='Install 1-liner'>

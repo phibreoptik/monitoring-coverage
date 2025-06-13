@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Colors } from '@dynatrace/strato-design-tokens';
-import { Flex, Text } from '@dynatrace/strato-components-preview';
+import { Flex } from '@dynatrace/strato-components/layouts';
 
 type IndicatorState = 'critical' | 'success' | 'warning' | 'neutral';
 

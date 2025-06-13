@@ -1,4 +1,5 @@
-import { Page, AppHeader, Flex, TitleBar } from '@dynatrace/strato-components-preview';
+import { Page, AppHeader, TitleBar } from '@dynatrace/strato-components-preview';
+import { Flex } from '@dynatrace/strato-components/layouts';
 import React from 'react';
 import { VulnerabilityTable } from './components/VulnerabilityTable';
 

@@ -1,17 +1,17 @@
 import React, { FormEvent, useRef, useState } from 'react';
 import {
   Modal,
-  Flex,
   FormField,
   TextInput,
   Select,
   SelectOption,
   SelectedKeys,
   PasswordInput,
-  Text,
   Button,
   FieldSet,
 } from '@dynatrace/strato-components-preview';
+import { Flex } from '@dynatrace/strato-components/layouts';
+import { Text } from '@dynatrace/strato-components/typography';
 import { Cloud } from '../../types/CloudTypes';
 import { useAWSCredentials } from '../../hooks/useAWSCredentials';
 

@@ -1,4 +1,6 @@
-import { Flex, Heading, Text } from '@dynatrace/strato-components-preview';
+import { Heading } from '@dynatrace/strato-components-preview';
+import { Flex } from '@dynatrace/strato-components/layouts';
+import { Text } from '@dynatrace/strato-components/typography';
 import { CodeIcon, ChatIcon } from '@dynatrace/strato-icons';
 import React from 'react';
 import { GithubIcon } from 'src/app/icons/GithubIcon';
