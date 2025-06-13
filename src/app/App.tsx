@@ -1,4 +1,4 @@
-import { Page, AppHeader, Flex } from '@dynatrace/strato-components-preview';
+import { Page, AppHeader, Flex, TitleBar } from '@dynatrace/strato-components-preview';
 import React from 'react';
 import { VulnerabilityTable } from './components/VulnerabilityTable';
 
@@ -7,7 +7,9 @@ export const App = () => {
     <Page>
       <Page.Header>
         <AppHeader>
-          <AppHeader.Title>Vulnerability management</AppHeader.Title>
+          <TitleBar>
+            <TitleBar.Title>Vulnerability management</TitleBar.Title>
+          </TitleBar>
         </AppHeader>
       </Page.Header>
       <Page.Main>
