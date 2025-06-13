@@ -4,7 +4,7 @@ import { coverageRatio } from './coverage-ratio';
 import { useHostsStatus } from 'src/app/hooks/useHostsStatus';
 import { useOneAgentHosts } from 'src/app/hooks/useOneAgentHosts';
 import { ErrorIcon, SyncIcon } from '@dynatrace/strato-icons';
-import { Button } from '@dynatrace/strato-components-preview';
+import { Button } from '@dynatrace/strato-components/buttons';
 import { OneAgentIcon } from 'src/app/icons/OneAgent';
 
 type ActionsCellProps = {

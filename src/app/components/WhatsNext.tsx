@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, ExternalLink, Flex, Heading, Paragraph } from '@dynatrace/strato-components-preview';
+import { Container, ExternalLink, Heading, Paragraph } from '@dynatrace/strato-components-preview';
+import { Flex } from '@dynatrace/strato-components/layouts';
 
 export const WhatsNext = () => {
   return (

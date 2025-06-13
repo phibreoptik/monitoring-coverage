@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { DataTable, Menu, Button, IntentButton, LoadingIndicator, Text } from '@dynatrace/strato-components-preview';
+import { DataTable, Menu, Button, IntentButton } from '@dynatrace/strato-components-preview';
 import { DotMenuIcon } from '@dynatrace/strato-icons';
 import { CloudType } from '../types/CloudTypes';
 import { OneAgentIcon } from '../icons/OneAgent';
@@ -61,7 +61,7 @@ export const HostsTable = ({ type }: HostTableProps) => {
   );
 
   if (isLoading) {
-    return <LoadingIndicator />;
+    return <div>Loading...</div>;
   }
 
   if (isError) {
@@ -76,6 +76,6 @@ export const HostsTable = ({ type }: HostTableProps) => {
       <InstallOneAgentModal modalOpen={modalOpen} onDismiss={() => setModalOpen(false)} ips={ips} cloudType={type} />
     </>
   ) : (
-    <Text>No unmonitored hosts detected. Connect additional clouds.</Text>
+    <span>No unmonitored hosts detected. Connect additional clouds.</span>
   );
 };

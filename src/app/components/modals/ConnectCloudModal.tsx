@@ -1,5 +1,7 @@
 import React, { Dispatch, SetStateAction } from 'react';
-import { Modal, Flex, FormField, TextInput, Button, Text } from '@dynatrace/strato-components-preview';
+import { Modal, FormField, TextInput, Button } from '@dynatrace/strato-components-preview';
+import { Flex } from '@dynatrace/strato-components/layouts';
+import { Text } from '@dynatrace/strato-components/typography';
 import { ExternalLinkIcon } from '@dynatrace/strato-icons';
 import { Cloud } from '../../types/CloudTypes';
 import { useDemoMode } from '../../hooks/useDemoMode';

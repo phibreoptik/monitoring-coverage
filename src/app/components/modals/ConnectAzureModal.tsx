@@ -1,5 +1,7 @@
 import React, { FormEvent, useRef } from 'react';
-import { Modal, Flex, FormField, TextInput, PasswordInput, Text, Button } from '@dynatrace/strato-components-preview';
+import { Modal, FormField, TextInput, PasswordInput, Button } from '@dynatrace/strato-components-preview';
+import { Flex } from '@dynatrace/strato-components/layouts';
+import { Text } from '@dynatrace/strato-components/typography';
 import { Cloud } from '../../types/CloudTypes';
 import { useAzureCredentials } from '../../hooks/useAzureCredentials';
 

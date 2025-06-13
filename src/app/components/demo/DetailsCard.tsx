@@ -1,5 +1,7 @@
 import React, { ReactElement } from 'react';
-import { Container, Flex, Surface, Text } from '@dynatrace/strato-components-preview';
+import { Container, Surface } from '@dynatrace/strato-components-preview';
+import { Flex } from '@dynatrace/strato-components/layouts';
+import { Text } from '@dynatrace/strato-components/typography';
 import { ExternalLinkIcon } from '@dynatrace/strato-icons';
 
 interface DetailsCardProps {

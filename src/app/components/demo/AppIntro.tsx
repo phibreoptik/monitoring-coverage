@@ -1,4 +1,6 @@
-import { Flex, Heading, List, Paragraph, Text } from '@dynatrace/strato-components-preview';
+import { Heading, List, Paragraph } from '@dynatrace/strato-components-preview';
+import { Flex } from '@dynatrace/strato-components/layouts';
+import { Text } from '@dynatrace/strato-components/typography';
 import React from 'react';
 
 export const AppIntro = () => {
