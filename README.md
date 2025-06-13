@@ -10,8 +10,9 @@ Please note that the app is intended mostly for educational purposes and should 
 You can start using this Sample App now:
 1. Clone this repo to your localhost
 2. Edit `env.ts` to point to your environment
-3. Test locally: `npm run start`
-4. Deploy using `npm run deploy`
+3. Run `npm install`
+4. Test locally: `npm run start`
+5. Deploy using `npm run deploy`
 
 Or, keep reading to understand how to modify this app for your own purposes or build your own.
 
