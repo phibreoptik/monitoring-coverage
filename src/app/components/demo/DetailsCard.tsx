@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Container, Surface } from '@dynatrace/strato-components-preview';
-import { Flex } from '@dynatrace/strato-components/layouts';
+import { Container, Surface, Flex } from '@dynatrace/strato-components/layouts';
 import { Text } from '@dynatrace/strato-components/typography';
 import { ExternalLinkIcon } from '@dynatrace/strato-icons';
 
@@ -17,7 +16,7 @@ interface DetailsCardProps {
 
 export const DetailsCard = ({ href, icon, title, text }: DetailsCardProps) => {
   return (
-    <Surface interactive as='a' target='_blank' href={href} rel='noopener noreferrer' padding={8} aria-label='advert'>
+    <Surface as='a' target='_blank' href={href} rel='noopener noreferrer' padding={8} aria-label='advert'>
       <Flex flexDirection='row' alignItems='center' gap={12}>
         <Container as={Flex} flexShrink={0} alignItems='center' justifyContent='center'>
           {icon}

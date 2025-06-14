@@ -1,15 +1,15 @@
 import React, { FormEvent, useRef, useState } from 'react';
+import { Modal } from '@dynatrace/strato-components-preview/overlays';
 import {
-  Modal,
   FormField,
   TextInput,
-  Select,
-  SelectOption,
-  SelectedKeys,
+  SelectV2,
+  SelectV2Option,
   PasswordInput,
-  Button,
   FieldSet,
-} from '@dynatrace/strato-components-preview';
+  Label,
+} from '@dynatrace/strato-components-preview/forms';
+import { Button } from '@dynatrace/strato-components/buttons';
 import { Flex } from '@dynatrace/strato-components/layouts';
 import { Text } from '@dynatrace/strato-components/typography';
 import { Cloud } from '../../types/CloudTypes';
@@ -23,7 +23,7 @@ type ConnectAWSModalProps = {
 
 export const ConnectAWSModal = ({ modalOpen, onDismiss, selectedCloud }: ConnectAWSModalProps) => {
   const formRef = useRef<HTMLFormElement>(null);
-  const [auth, setAuth] = useState<SelectedKeys | null>(['ROLE']);
+  const [auth, setAuth] = useState<string>('ROLE');
 
   const { mutate } = useAWSCredentials();
 
@@ -50,53 +50,60 @@ export const ConnectAWSModal = ({ modalOpen, onDismiss, selectedCloud }: Connect
               &nbsp; Add {selectedCloud?.cloud} integration:
             </Text>
           </Flex>
-          <FormField label='Connection name' required>
+          <FormField>
+            <Label required>Connection name</Label>
             <TextInput placeholder='For example, Dynatrace integration' name='name' />
           </FormField>
           <FieldSet name='authenticationData'>
-            <FormField label='Authentication method' required>
-              <Select name='auth' onChange={setAuth} selectedId={auth}>
-                <SelectOption id='KEYS' value='KEYS'>
+            <FormField>
+              <Label required>Authentication method</Label>
+              <SelectV2 name='auth' value={auth} onChange={(value) => value !== null && setAuth(value)}>
+                <SelectV2Option id='KEYS' value='KEYS'>
                   Key-based authentication
-                </SelectOption>
-                <SelectOption id='ROLE' value='ROLE'>
+                </SelectV2Option>
+                <SelectV2Option id='ROLE' value='ROLE'>
                   Role-based authentication
-                </SelectOption>
-              </Select>
+                </SelectV2Option>
+              </SelectV2>
             </FormField>
           </FieldSet>
-          {auth?.includes('KEYS') ? (
+          {auth === 'KEYS' ? (
             <Flex flexDirection='column' gap={16}>
-              <Select defaultSelectedId={['AWS_DEFAULT']} name='partition'>
-                <SelectOption id='AWS_DEFAULT' value='AWS_DEFAULT'>
+              <SelectV2 defaultValue='AWS_DEFAULT' name='partition'>
+                <SelectV2Option id='AWS_DEFAULT' value='AWS_DEFAULT'>
                   Default
-                </SelectOption>
-                <SelectOption id='AWS_US_GOV' value='AWS_US_GOV'>
+                </SelectV2Option>
+                <SelectV2Option id='AWS_US_GOV' value='AWS_US_GOV'>
                   US Gov
-                </SelectOption>
-                <SelectOption id='AWS_CN' value='AWS_CN'>
+                </SelectV2Option>
+                <SelectV2Option id='AWS_CN' value='AWS_CN'>
                   China
-                </SelectOption>
-              </Select>
-              <FormField label='Access Key ID' required>
+                </SelectV2Option>
+              </SelectV2>
+              <FormField>
+                <Label required>Access Key ID</Label>
                 <TextInput placeholder='Access key' name='accessKeyId' required />
               </FormField>
-              <FormField label='Secret access key' required>
+              <FormField>
+                <Label required>Secret access key</Label>
                 <PasswordInput placeholder='Secret key' name='secretKeyId' required />
               </FormField>
             </Flex>
           ) : (
             <input type='hidden' value='AWS_DEFAULT' name='partition' />
           )}
-          {auth?.includes('ROLE') && (
+          {auth === 'ROLE' && (
             <Flex flexDirection='column' gap={16}>
-              <FormField label='IAM role that Dynatrace should use to get monitoring data'>
+              <FormField>
+                <Label>IAM role that Dynatrace should use to get monitoring data</Label>
                 <TextInput placeholder='Role for this connection' name='role' />
               </FormField>
-              <FormField label='Your Amazon account ID'>
+              <FormField>
+                <Label>Your Amazon account ID</Label>
                 <TextInput placeholder='Account ID' name='accountId' />
               </FormField>
-              <FormField label='Token (use this value as the External ID for your IAM role)'>
+              <FormField>
+                <Label>Token (use this value as the External ID for your IAM role)</Label>
                 <PasswordInput placeholder='********************' name='externalId' />
               </FormField>
             </Flex>

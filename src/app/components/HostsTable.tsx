@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
-import { DataTable, Menu, Button, IntentButton } from '@dynatrace/strato-components-preview';
+import { DataTable, Menu } from '@dynatrace/strato-components-preview';
+import { Button, IntentButton } from '@dynatrace/strato-components/buttons';
 import { DotMenuIcon } from '@dynatrace/strato-icons';
 import { CloudType } from '../types/CloudTypes';
 import { OneAgentIcon } from '../icons/OneAgent';
@@ -27,6 +28,7 @@ export const HostsTable = ({ type }: HostTableProps) => {
       { accessor: "'entity.detected_name'", header: 'Detected Name' },
       { accessor: 'ipAddress', header: 'IP Address' },
       {
+        id: 'actions',
         header: ' ',
         autoWidth: true,
         cell: ({ row }) => {

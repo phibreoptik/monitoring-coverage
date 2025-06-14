@@ -1,11 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import {
-  DataTable,
-  Flex,
-  Button,
-  TableColumn,
-  Menu,
-} from '@dynatrace/strato-components-preview';
+import { DataTable, TableColumn, Menu } from '@dynatrace/strato-components-preview';
+import { Flex } from '@dynatrace/strato-components/layouts';
+import { Button } from '@dynatrace/strato-components/buttons';
 import { SyncIcon, DotMenuIcon } from '@dynatrace/strato-icons';
 import Spacings from '@dynatrace/strato-design-tokens/spacings';
 
@@ -36,6 +32,7 @@ export const CloudTable = () => {
   const columns = useMemo<TableColumn[]>(
     () => [
       {
+        id: 'cloudProvider',
         header: 'Cloud provider',
         width: 170,
         cell: ({ row }) => {
@@ -48,6 +45,7 @@ export const CloudTable = () => {
         },
       },
       {
+        id: 'cloudStatus',
         header: 'Cloud status',
         width: 100,
         cell: ({ row }) => {
@@ -55,6 +53,7 @@ export const CloudTable = () => {
         },
       },
       {
+        id: 'cloudHosts',
         header: 'Cloud hosts',
         width: 100,
         alignment: 'right',
@@ -72,6 +71,7 @@ export const CloudTable = () => {
         },
       },
       {
+        id: 'coverage',
         header: 'OneAgent coverage',
         alignment: 'right',
         width: 120,
@@ -80,6 +80,7 @@ export const CloudTable = () => {
         },
       },
       {
+        id: 'priority',
         header: 'Priority',
         width: 100,
         cell: ({ row }) => {
@@ -87,6 +88,7 @@ export const CloudTable = () => {
         },
       },
       {
+        id: 'actions',
         header: 'Actions',
         alignment: 'center',
         width: 160,
@@ -103,6 +105,7 @@ export const CloudTable = () => {
         },
       },
       {
+        id: 'options',
         header: ' ',
         alignment: 'center',
         width: 40,

@@ -1,5 +1,7 @@
 import React, { FormEvent, useRef } from 'react';
-import { Modal, FormField, TextInput, PasswordInput, Button } from '@dynatrace/strato-components-preview';
+import { Modal } from '@dynatrace/strato-components-preview/overlays';
+import { FormField, TextInput, PasswordInput, Label } from '@dynatrace/strato-components-preview/forms';
+import { Button } from '@dynatrace/strato-components/buttons';
 import { Flex } from '@dynatrace/strato-components/layouts';
 import { Text } from '@dynatrace/strato-components/typography';
 import { Cloud } from '../../types/CloudTypes';
@@ -35,16 +37,20 @@ export const ConnectAzureModal = ({ modalOpen, onDismiss, selectedCloud }: Conne
               &nbsp; Add {selectedCloud.cloud} integration:
             </Text>
           </Flex>
-          <FormField label='Connection name' required>
+          <FormField>
+            <Label required>Connection name</Label>
             <TextInput placeholder='For example, Dynatrace integration' name='name' />
           </FormField>
-          <FormField label='Client ID' required>
+          <FormField>
+            <Label required>Client ID</Label>
             <TextInput placeholder='For example, 98989ae2-4566-4efd-9db8-e194bb3910e4' name='clientId' />
           </FormField>
-          <FormField label='Tenant ID' required>
+          <FormField>
+            <Label required>Tenant ID</Label>
             <TextInput placeholder='For example, 68345fd1-3216-4aed-7be2-a244bb3907b2' name='tenantId' />
           </FormField>
-          <FormField label='Secret Key' required>
+          <FormField>
+            <Label required>Secret Key</Label>
             <PasswordInput placeholder='**********************' name='secretKey' />
           </FormField>
 
