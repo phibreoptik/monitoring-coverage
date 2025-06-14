@@ -1,7 +1,7 @@
 import React from 'react';
 import { CloudType } from '../../types/CloudTypes';
 import { useHostsStatus } from '../../hooks/useHostsStatus';
-import { ErrorIcon } from '@dynatrace/strato-icons';
+import { WarningIcon } from '@dynatrace/strato-icons';
 import { format, units } from '@dynatrace-sdk/units';
 import { Indicator } from '../Indicator';
 import { useOneAgentHosts } from 'src/app/hooks/useOneAgentHosts';
@@ -20,7 +20,7 @@ export const OneAgentCoverageCell = ({ type }: OneAgentCoverageCellProps) => {
 
   if (isLoading) return null;
 
-  if (isError) return <ErrorIcon />;
+  if (isError) return <WarningIcon />;
 
   const coverage = coverageRatio(status.data, oneagent.data[type]);
   if (coverage > 100) return <Indicator state='critical'>&gt; 100 %</Indicator>;

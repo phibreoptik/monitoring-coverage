@@ -1,7 +1,7 @@
 import React from 'react';
 import { CloudType } from '../../types/CloudTypes';
 import { useHostsStatus } from '../../hooks/useHostsStatus';
-import { ErrorIcon } from '@dynatrace/strato-icons';
+import { WarningIcon } from '@dynatrace/strato-icons';
 import { format } from '@dynatrace-sdk/units';
 
 type HostsCellProps = {
@@ -13,7 +13,7 @@ export const HostsCell = ({ type }: HostsCellProps) => {
 
   if (isLoading) return <span>Loading...</span>;
 
-  if (isError) return <ErrorIcon />;
+  if (isError) return <WarningIcon />;
 
   return <>{data.hosts !== undefined ? format(data.hosts) : '-'}</>;
 };

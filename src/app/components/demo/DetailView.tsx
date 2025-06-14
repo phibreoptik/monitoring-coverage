@@ -1,4 +1,4 @@
-import { Heading } from '@dynatrace/strato-components-preview';
+import { Heading } from '@dynatrace/strato-components/typography';
 import { Flex } from '@dynatrace/strato-components/layouts';
 import { Text } from '@dynatrace/strato-components/typography';
 import { CodeIcon, ChatIcon } from '@dynatrace/strato-icons';

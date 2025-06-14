@@ -3,7 +3,7 @@ import { CloudType } from 'src/app/types/CloudTypes';
 import { coverageRatio } from './coverage-ratio';
 import { useHostsStatus } from 'src/app/hooks/useHostsStatus';
 import { useOneAgentHosts } from 'src/app/hooks/useOneAgentHosts';
-import { ErrorIcon, SyncIcon } from '@dynatrace/strato-icons';
+import { WarningIcon, SyncIcon } from '@dynatrace/strato-icons';
 import { Button } from '@dynatrace/strato-components/buttons';
 import { OneAgentIcon } from 'src/app/icons/OneAgent';
 
@@ -26,7 +26,7 @@ export const ActionsCell = ({ type, onClick }: ActionsCellProps) => {
 
   if (isLoading) return null;
 
-  if (isError) return <ErrorIcon />;
+  if (isError) return <WarningIcon />;
 
   const coverage = coverageRatio(status.data, oneagent.data[type]);
 
