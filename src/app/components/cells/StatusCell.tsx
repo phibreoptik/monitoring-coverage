@@ -2,7 +2,7 @@ import React from 'react';
 import { CloudType } from '../../types/CloudTypes';
 import { useHostsStatus } from '../../hooks/useHostsStatus';
 
-import { ErrorIcon, SyncDoneIcon, SyncOffIcon } from '@dynatrace/strato-icons';
+import { WarningIcon, SyncDoneIcon, SyncOffIcon } from '@dynatrace/strato-icons';
 import { Indicator } from '../Indicator';
 import { useOneAgentHosts } from 'src/app/hooks/useOneAgentHosts';
 
@@ -16,7 +16,7 @@ export const StatusCell = ({ type }: StatusCellProps) => {
 
   if (isLoading) return <span>Loading...</span>;
 
-  if (isError) return <ErrorIcon />;
+  if (isError) return <WarningIcon />;
 
   if (data.status) {
     return (

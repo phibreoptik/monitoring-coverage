@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react';
-import { Container, Surface } from '@dynatrace/strato-components-preview';
-import { Flex } from '@dynatrace/strato-components/layouts';
+import { Container, Surface, Flex } from '@dynatrace/strato-components/layouts';
 import { Text } from '@dynatrace/strato-components/typography';
 import { ExternalLinkIcon } from '@dynatrace/strato-icons';
 

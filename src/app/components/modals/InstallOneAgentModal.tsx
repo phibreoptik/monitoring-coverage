@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
+import { Modal } from '@dynatrace/strato-components-preview/overlays';
+import { Flex } from '@dynatrace/strato-components/layouts';
 import {
-  Modal,
-  Flex,
   FormField,
-  Select,
-  SelectOption,
-  SelectedKeys,
+  SelectV2,
+  SelectV2Option,
   TextInput,
   TextArea,
   Hint,
-  ProgressBar,
-} from '@dynatrace/strato-components-preview';
+  Label,
+} from '@dynatrace/strato-components-preview/forms';
+import { ProgressBar } from '@dynatrace/strato-components/content';
 import { Text } from '@dynatrace/strato-components/typography';
 import { Button } from '@dynatrace/strato-components/buttons';
 import {
@@ -46,12 +46,12 @@ export const InstallOneAgentModal = ({ modalOpen, onDismiss, ips, cloudType }: I
   //visual states
   const [optionsOpen, setOptionsOpen] = useState(false);
   //form states
-  const [mode, setMode] = useState<SelectedKeys>(['infrastructure']);
-  const [installerType, setInstallerType] = useState<SelectedKeys>(['default']);
+  const [mode, setMode] = useState<React.Key[]>(['infrastructure']);
+  const [installerType, setInstallerType] = useState<React.Key[]>(['default']);
   const [disabledInstallerTypes, setDisabledInstallerTypes] = useState<string[]>([]);
-  const [arch, setArch] = useState<SelectedKeys>(['all']);
+  const [arch, setArch] = useState<React.Key[]>(['all']);
   const [disabledArchs, setDisabledArchs] = useState<string[]>([]);
-  const [osType, setOsType] = useState<{ keys: SelectedKeys; value: string }>({ keys: ['unix'], value: 'Linux' });
+  const [osType, setOsType] = useState<{ keys: React.Key[]; value: string }>({ keys: ['unix'], value: 'Linux' });
   const [networkZone, setNetworkZone] = useState<string | undefined>('');
 
   const { data: token } = useInstallerDownloadToken();
@@ -78,7 +78,7 @@ export const InstallOneAgentModal = ({ modalOpen, onDismiss, ips, cloudType }: I
 
   const { mutate: downloadOneAgent, isLoading: downloading } = useDownloadOneAgent();
 
-  const selectOsType = (keys: SelectedKeys, value: string) => {
+  const selectOsType = (keys: React.Key[], value: string) => {
     const archs = Object.values(GetAgentInstallerMetaInfoQueryArch);
     setOsType({ keys, value });
     switch (keys[0]) {
@@ -133,7 +133,8 @@ export const InstallOneAgentModal = ({ modalOpen, onDismiss, ips, cloudType }: I
 
         {/* Step 1 - Copy IP list */}
         <Flex flexDirection='row'>
-          <FormField label='IP list'>
+          <FormField>
+            <Label>IP list</Label>
             <TextArea readOnly rows={3} cols={TEXTCOLS} key={ips} defaultValue={ips} />
             <CopyButton contentToCopy={ips} />
           </FormField>
@@ -141,25 +142,27 @@ export const InstallOneAgentModal = ({ modalOpen, onDismiss, ips, cloudType }: I
 
         {/* Step 2 - Pick OneAgent mode */}
         <Flex flexDirection='row'>
-          <FormField label='OS Type'>
-            <Select selectedId={osType.keys} onChange={selectOsType}>
-              <SelectOption id='unix'>Linux</SelectOption>
-              <SelectOption id='windows'>Windows</SelectOption>
-              <SelectOption id='aix'>AIX</SelectOption>
-              <SelectOption id='solaris'>Solaris</SelectOption>
-              <SelectOption id='zos'>zOS</SelectOption>
-            </Select>
+          <FormField>
+            <Label>OS Type</Label>
+            <SelectV2 selectedId={osType.keys} onChange={selectOsType}>
+              <SelectV2Option id='unix'>Linux</SelectV2Option>
+              <SelectV2Option id='windows'>Windows</SelectV2Option>
+              <SelectV2Option id='aix'>AIX</SelectV2Option>
+              <SelectV2Option id='solaris'>Solaris</SelectV2Option>
+              <SelectV2Option id='zos'>zOS</SelectV2Option>
+            </SelectV2>
           </FormField>
-          <FormField label='OneAgent Mode'>
-            <Select
+          <FormField>
+            <Label>OneAgent Mode</Label>
+            <SelectV2
               selectedId={mode}
               onChange={(value) => value !== null && setMode(value)}
               disabledKeys={['discovery']}
             >
-              <SelectOption id='discovery'>Discovery</SelectOption>
-              <SelectOption id='infrastructure'>Infrastructure</SelectOption>
-              <SelectOption id='fullstack'>FullStack</SelectOption>
-            </Select>
+              <SelectV2Option id='discovery'>Discovery</SelectV2Option>
+              <SelectV2Option id='infrastructure'>Infrastructure</SelectV2Option>
+              <SelectV2Option id='fullstack'>FullStack</SelectV2Option>
+            </SelectV2>
           </FormField>
         </Flex>
 
@@ -171,34 +174,37 @@ export const InstallOneAgentModal = ({ modalOpen, onDismiss, ips, cloudType }: I
             Optional Parameters
           </Button>
           <Flex flexDirection='column' marginTop={8}>
-            <FormField label='Installer type'>
-              <Select
+            <FormField>
+              <Label>Installer type</Label>
+              <SelectV2
                 name='mode'
                 selectedId={installerType}
                 onChange={(value) => value !== null && setInstallerType(value)}
                 disabledKeys={disabledInstallerTypes}
               >
-                <SelectOption id='default'>Default</SelectOption>
-                <SelectOption id='paas'>PaaS</SelectOption>
-                <SelectOption id='paas-sh'>PaaS sh</SelectOption>
-              </Select>
+                <SelectV2Option id='default'>Default</SelectV2Option>
+                <SelectV2Option id='paas'>PaaS</SelectV2Option>
+                <SelectV2Option id='paas-sh'>PaaS sh</SelectV2Option>
+              </SelectV2>
             </FormField>
-            <FormField label='Architecture'>
-              <Select
+            <FormField>
+              <Label>Architecture</Label>
+              <SelectV2
                 selectedId={arch}
                 onChange={(value) => value !== null && setArch(value)}
                 disabledKeys={disabledArchs}
               >
-                <SelectOption id='all'>Default</SelectOption>
-                <SelectOption id='x86'>x86</SelectOption>
-                <SelectOption id='ppc'>ppc</SelectOption>
-                <SelectOption id='ppcle'>ppcle</SelectOption>
-                <SelectOption id='sparc'>sparc</SelectOption>
-                <SelectOption id='arm'>arm</SelectOption>
-                <SelectOption id='s390'>s390</SelectOption>
-              </Select>
+                <SelectV2Option id='all'>Default</SelectV2Option>
+                <SelectV2Option id='x86'>x86</SelectV2Option>
+                <SelectV2Option id='ppc'>ppc</SelectV2Option>
+                <SelectV2Option id='ppcle'>ppcle</SelectV2Option>
+                <SelectV2Option id='sparc'>sparc</SelectV2Option>
+                <SelectV2Option id='arm'>arm</SelectV2Option>
+                <SelectV2Option id='s390'>s390</SelectV2Option>
+              </SelectV2>
             </FormField>
-            <FormField label='Network Zone'>
+            <FormField>
+              <Label>Network Zone</Label>
               <TextInput value={networkZone} onChange={setNetworkZone} />
             </FormField>
           </Flex>
@@ -212,7 +218,8 @@ export const InstallOneAgentModal = ({ modalOpen, onDismiss, ips, cloudType }: I
             </ProgressBar>
           ) : (
             <>
-              <FormField label='Get OneAgent'>
+              <FormField>
+                <Label>Get OneAgent</Label>
                 <TextArea
                   readOnly
                   rows={2}
@@ -235,7 +242,8 @@ export const InstallOneAgentModal = ({ modalOpen, onDismiss, ips, cloudType }: I
                   {downloading ? <span>Loading...</span> : null}
                 </Flex>
               </FormField>
-              <FormField label='Install 1-liner'>
+              <FormField>
+                <Label>Install 1-liner</Label>
                 <TextArea
                   readOnly
                   rows={2}

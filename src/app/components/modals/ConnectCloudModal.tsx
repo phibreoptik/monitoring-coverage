@@ -1,5 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react';
-import { Modal, FormField, TextInput, Button } from '@dynatrace/strato-components-preview';
+import { Modal } from '@dynatrace/strato-components-preview/overlays';
+import { FormField, TextInput, Button, Label } from '@dynatrace/strato-components-preview/forms';
 import { Flex } from '@dynatrace/strato-components/layouts';
 import { Text } from '@dynatrace/strato-components/typography';
 import { ExternalLinkIcon } from '@dynatrace/strato-icons';
@@ -33,11 +34,14 @@ export const ConnectCloudModal = ({ modalOpen, onDismiss, selectedCloud }: Conne
         </Flex>
         {demoMode && (
           <Flex flexDirection='column' gap={16}>
-            <FormField label='(Mock)'>
-              <FormField label='API URL'>
+            <FormField>
+              <Label>(Mock)</Label>
+              <FormField>
+                <Label>API URL</Label>
                 <TextInput placeholder='https://xxx.xxxxxxxx.xxx/xxx' />
               </FormField>
-              <FormField label='API Key'>
+              <FormField>
+                <Label>API Key</Label>
                 <TextInput placeholder='xxxxxxxxxxxxxxxxxxxxxxxxxxxx' />
               </FormField>
             </FormField>

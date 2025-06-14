@@ -1,11 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import {
-  DataTable,
-  Flex,
-  Button,
-  TableColumn,
-  Menu,
-} from '@dynatrace/strato-components-preview';
+import { DataTable, TableColumn, Menu } from '@dynatrace/strato-components-preview';
+import { Flex } from '@dynatrace/strato-components/layouts';
+import { Button } from '@dynatrace/strato-components/buttons';
 import { SyncIcon, DotMenuIcon } from '@dynatrace/strato-icons';
 import Spacings from '@dynatrace/strato-design-tokens/spacings';
 

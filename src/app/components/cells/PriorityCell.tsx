@@ -1,7 +1,7 @@
 import React from 'react';
 import { CloudType } from '../../types/CloudTypes';
 import { useHostsStatus } from '../../hooks/useHostsStatus';
-import { ErrorIcon } from '@dynatrace/strato-icons';
+import { WarningIcon } from '@dynatrace/strato-icons';
 import { Indicator } from '../Indicator';
 import { useOneAgentHosts } from 'src/app/hooks/useOneAgentHosts';
 import { coverageRatio } from './coverage-ratio';
@@ -19,7 +19,7 @@ export const PriorityCell = ({ type }: PriorityCellProps) => {
 
   if (isLoading) return null;
 
-  if (isError) return <ErrorIcon />;
+  if (isError) return <WarningIcon />;
 
   const oneagentHosts = oneagent.data[type];
 

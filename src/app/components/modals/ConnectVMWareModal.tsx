@@ -1,11 +1,6 @@
 import React, { FormEvent, useRef, } from 'react';
-import {
-  Modal,
-  FormField,
-  TextInput,
-  PasswordInput,
-  Button,
-} from '@dynatrace/strato-components-preview';
+import { Modal } from '@dynatrace/strato-components-preview/overlays';
+import { FormField, TextInput, PasswordInput, Button, Label } from '@dynatrace/strato-components-preview/forms';
 import { Flex } from '@dynatrace/strato-components/layouts';
 import { Text } from '@dynatrace/strato-components/typography';
 import { Cloud } from '../../types/CloudTypes';
@@ -45,16 +40,20 @@ export const ConnectVMWareModal = ({ modalOpen, onDismiss, selectedCloud }: Conn
               &nbsp; Add {selectedCloud?.cloud} integration:
             </Text>
           </Flex>
-          <FormField label='Name this connection' required>
+          <FormField>
+            <Label required>Name this connection</Label>
             <TextInput placeholder='For example, Dynatrace integration' name='label' />
           </FormField>
-          <FormField label='Specify the IP address or name of the vCenter or standalone ESXi host:'>
+          <FormField>
+            <Label>Specify the IP address or name of the vCenter or standalone ESXi host:</Label>
             <TextInput placeholder='For example, Vcenter01' name='ipaddress' />
           </FormField>
-          <FormField label='Provide user credentials for the vCenter or standalone ESXi host:'>
+          <FormField>
+            <Label>Provide user credentials for the vCenter or standalone ESXi host:</Label>
             <TextInput placeholder='Account ID' name='username' />
           </FormField>
-          <FormField label='Password'>
+          <FormField>
+            <Label>Password</Label>
             <PasswordInput placeholder='********************' name='password' />
           </FormField>
           <Flex flexGrow={0} justifyContent='flex-end'>
