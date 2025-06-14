@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import { Modal } from '@dynatrace/strato-components-preview/overlays';
-import { FormField, TextInput, Button, Label } from '@dynatrace/strato-components-preview/forms';
+import { FormField, TextInput, Label } from '@dynatrace/strato-components-preview/forms';
+import { Button } from '@dynatrace/strato-components/buttons';
 import { Flex } from '@dynatrace/strato-components/layouts';
 import { Text } from '@dynatrace/strato-components/typography';
 import { ExternalLinkIcon } from '@dynatrace/strato-icons';

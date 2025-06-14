@@ -28,6 +28,7 @@ export const HostsTable = ({ type }: HostTableProps) => {
       { accessor: "'entity.detected_name'", header: 'Detected Name' },
       { accessor: 'ipAddress', header: 'IP Address' },
       {
+        id: 'actions',
         header: ' ',
         autoWidth: true,
         cell: ({ row }) => {

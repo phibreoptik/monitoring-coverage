@@ -41,6 +41,7 @@
     "@dynatrace-sdk/client-query": "^1.20.2",
     "@dynatrace-sdk/navigation": "^2.0.0",
     "@dynatrace-sdk/units": "^1.0.3",
+    "@dynatrace-sdk/app-environment": "^1.1.0",
     "@dynatrace/strato-components": "^1.6.0",
     "@dynatrace/strato-components-preview": "^1.6.1",
     "@dynatrace/strato-design-tokens": "^1.0.1",

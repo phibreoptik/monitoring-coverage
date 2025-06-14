@@ -32,6 +32,7 @@ export const CloudTable = () => {
   const columns = useMemo<TableColumn[]>(
     () => [
       {
+        id: 'cloudProvider',
         header: 'Cloud provider',
         width: 170,
         cell: ({ row }) => {
@@ -44,6 +45,7 @@ export const CloudTable = () => {
         },
       },
       {
+        id: 'cloudStatus',
         header: 'Cloud status',
         width: 100,
         cell: ({ row }) => {
@@ -51,6 +53,7 @@ export const CloudTable = () => {
         },
       },
       {
+        id: 'cloudHosts',
         header: 'Cloud hosts',
         width: 100,
         alignment: 'right',
@@ -68,6 +71,7 @@ export const CloudTable = () => {
         },
       },
       {
+        id: 'coverage',
         header: 'OneAgent coverage',
         alignment: 'right',
         width: 120,
@@ -76,6 +80,7 @@ export const CloudTable = () => {
         },
       },
       {
+        id: 'priority',
         header: 'Priority',
         width: 100,
         cell: ({ row }) => {
@@ -83,6 +88,7 @@ export const CloudTable = () => {
         },
       },
       {
+        id: 'actions',
         header: 'Actions',
         alignment: 'center',
         width: 160,
@@ -99,6 +105,7 @@ export const CloudTable = () => {
         },
       },
       {
+        id: 'options',
         header: ' ',
         alignment: 'center',
         width: 40,

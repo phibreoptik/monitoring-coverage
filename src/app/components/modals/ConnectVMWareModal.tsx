@@ -1,6 +1,7 @@
 import React, { FormEvent, useRef, } from 'react';
 import { Modal } from '@dynatrace/strato-components-preview/overlays';
-import { FormField, TextInput, PasswordInput, Button, Label } from '@dynatrace/strato-components-preview/forms';
+import { FormField, TextInput, PasswordInput, Label } from '@dynatrace/strato-components-preview/forms';
+import { Button } from '@dynatrace/strato-components/buttons';
 import { Flex } from '@dynatrace/strato-components/layouts';
 import { Text } from '@dynatrace/strato-components/typography';
 import { Cloud } from '../../types/CloudTypes';

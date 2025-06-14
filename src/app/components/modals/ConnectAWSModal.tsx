@@ -6,10 +6,10 @@ import {
   SelectV2,
   SelectV2Option,
   PasswordInput,
-  Button,
   FieldSet,
   Label,
 } from '@dynatrace/strato-components-preview/forms';
+import { Button } from '@dynatrace/strato-components/buttons';
 import { Flex } from '@dynatrace/strato-components/layouts';
 import { Text } from '@dynatrace/strato-components/typography';
 import { Cloud } from '../../types/CloudTypes';
@@ -23,7 +23,7 @@ type ConnectAWSModalProps = {
 
 export const ConnectAWSModal = ({ modalOpen, onDismiss, selectedCloud }: ConnectAWSModalProps) => {
   const formRef = useRef<HTMLFormElement>(null);
-  const [auth, setAuth] = useState<React.Key[] | null>(['ROLE']);
+  const [auth, setAuth] = useState<string>('ROLE');
 
   const { mutate } = useAWSCredentials();
 
@@ -57,7 +57,7 @@ export const ConnectAWSModal = ({ modalOpen, onDismiss, selectedCloud }: Connect
           <FieldSet name='authenticationData'>
             <FormField>
               <Label required>Authentication method</Label>
-              <SelectV2 name='auth' onChange={setAuth} selectedId={auth}>
+              <SelectV2 name='auth' value={auth} onChange={(value) => value !== null && setAuth(value)}>
                 <SelectV2Option id='KEYS' value='KEYS'>
                   Key-based authentication
                 </SelectV2Option>
@@ -67,9 +67,9 @@ export const ConnectAWSModal = ({ modalOpen, onDismiss, selectedCloud }: Connect
               </SelectV2>
             </FormField>
           </FieldSet>
-          {auth?.includes('KEYS') ? (
+          {auth === 'KEYS' ? (
             <Flex flexDirection='column' gap={16}>
-              <SelectV2 defaultSelectedId={['AWS_DEFAULT']} name='partition'>
+              <SelectV2 defaultValue='AWS_DEFAULT' name='partition'>
                 <SelectV2Option id='AWS_DEFAULT' value='AWS_DEFAULT'>
                   Default
                 </SelectV2Option>
@@ -92,7 +92,7 @@ export const ConnectAWSModal = ({ modalOpen, onDismiss, selectedCloud }: Connect
           ) : (
             <input type='hidden' value='AWS_DEFAULT' name='partition' />
           )}
-          {auth?.includes('ROLE') && (
+          {auth === 'ROLE' && (
             <Flex flexDirection='column' gap={16}>
               <FormField>
                 <Label>IAM role that Dynatrace should use to get monitoring data</Label>
